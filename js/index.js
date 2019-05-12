@@ -53,7 +53,7 @@ function prettify(input){
 }
 
 function killKid() {
-  kids = kids + 1000;
+  kids = kids + 1;
   document.getElementById("kidCount").innerHTML = prettify(kids);
 }
 
