@@ -46,7 +46,7 @@
   </head>
   <body>
     <div class="container">
-
+      <p class="TotalSpeed"> Your army is killing <span id="TotalSpeed" class="red">0.0</span> kids per second </p>
       <h1>You have killed <span id="kidCount" class="red">1</span> kids.</h1>
       <div class="Clicker">
 
@@ -56,18 +56,15 @@
     <div class="UpgradeSoldierBox">
 
       <div class="SoldierBox">
-        
-        <button class="buyButtonU" onClick="buySoldier(1)">Hire a soldier 💂</button>
-        <button class="buyButtonU" onClick="buySoldier(10)">x10 💂</button>
-        <button class="buyButtonU" onClick="buySoldier(100)">x100 💂</button>
-        <p> Price : <span id="soldierCost">10</span> dead kids.<br>
-         You have <span id="soldierCount">0</span> soldiers killing <span id="soldierSpeed">0</span> kids per second</p>
+        <p><span id="soldierCount">0</span> soldiers.</p>
+        <button class="buyButtonU" onClick="buySoldier()">Hire a soldier 💂</button>
+        <p> Price : <span id="soldierCost">15</span> dead kids.<br></p> 
 
       </div>
          
          <div class="GunBox">
              <button class="buyButtonW" onClick="buyGun()">Upgrade guns 🔫</button>
-            <p> Price : <span id="gunCost">130</span> dead kids.<br>  Equip your soldiers with better guns!</p>
+            <p> Price : <span id="gunCost">100</span> dead kids.<br>  Equip your soldiers with better guns!</p>
          </div>
 
          </div>
@@ -76,16 +73,15 @@
          <div class="UpgradeTerroristBox" id="UnlockTerrorist">
 
          <div class="TerroristBox" >
-           <button class="buyButtonU" onClick="buyTerrorist(1)">Hire terrorists 👹</button>
-           <button class="buyButtonU" onClick="buyTerrorist(10)">x10 👹</button>
-           <button class="buyButtonU" onClick="buyTerrorist(100)">x100 👹</button>
-           <p> Price : <span id="terroristCost">600</span> dead kids.<br>
-            You have <span id="terroristCount">0</span> terrorists exploding <span id="terroristSpeed">0</span> kids per second</p>
+          <p><span id="TerroristCount">0</span> terrorists</p>
+           <button class="buyButtonU" onClick="buyTerrorist()">Hire terrorists 👹</button>
+           <p> Price : <span id="terroristCost">100</span> dead kids.<br>
+            </p>
          </div>
 
          <div class="BombBox">
              <button class="buyButtonW" onClick="buyBomb()">Upgrade bombs 💣</button>
-            <p> Price : <span id="bombCost">900</span> dead kids.<br>  Gotta explode 'em all!</p>
+            <p> Price : <span id="bombCost">1000</span> dead kids.<br>  Gotta explode 'em all!</p>
          </div>
 
         </div>
@@ -93,11 +89,10 @@
         <div class="UpgradeAntiVaxBox" id="UnlockAntiVaxx">
 
           <div class="TerroristBox">
-           <button class="buyButtonU" onClick="buyAntiVaxx(1)">Launch Anti-Vaccination compaign 💉</button>
-           <button class="buyButtonU" onClick="buyAntiVaxx(10)">x10 💉</button>
-           <button class="buyButtonU" onClick="buyAntiVaxx(100)">x100 💉</button>
-           <p> Price : <span id="AntiVaxxCost">8000</span> dead kids.<br>
-            You have <span id="AntiVaxxCount">0</span> active anti-vaccination compaign killing <span id="AntiVaxxSpeed">0</span> kids per second with polio</p>
+            <p><span id="AntiVaxxCount">0</span> anti-vaccination compaigns</p>
+           <button class="buyButtonU" onClick="buyAntiVaxx()">Launch Anti-Vaccination compaign 💉</button>
+           <p> Price : <span id="AntiVaxxCost">1100</span> dead kids.<br>
+            </p>
          </div>
 
          <div class="BombBox">
@@ -108,16 +103,15 @@
          <div class="UpgradePedoBox" id="UnlockPedos">
 
           <div class="TerroristBox">
-           <button class="buyButtonU" onClick="buyPedo(1)">Hire Pedophiles 🐻</button>
-           <button class="buyButtonU" onClick="buyPedo(10)">x10 🐻</button>
-           <button class="buyButtonU" onClick="buyPedo(100)">x100 🐻</button>
-           <p> Price : <span id="PedoCost">35000</span> dead kids.<br>
-            You have <span id="Pedophile">0</span> pedophiles raping and killing <span id="PedoSpeed">0</span> kids per second</p>
+           <p><span id="Pedophile">0</span> pedophiles</p>
+           <button class="buyButtonU" onClick="buyPedo()">Hire Pedophiles 🐻</button>
+           <p> Price : <span id="PedoCost">12000</span> dead kids.<br>
+            </p>
          </div>
 
          <div class="BombBox">
              <button class="buyButtonW" onClick="buyPedoTrain()">Build pedophile training camp 🏛️</button>
-            <p> Price : <span id="PedoTrainCost">99000</span> dead kids.<br>  Pedobear's golden hour.</p>
+            <p> Price : <span id="PedoTrainCost">112000</span> dead kids.<br>  Pedobear's golden hour.</p>
          </div>
 
         </div>
@@ -147,7 +141,7 @@
   
   <div class="footer">
 
-  <p>Game made with ❤️ and ☕ by /u/Get2Hyped (Version 0.4e)</p>
+  <p>Game made with ❤️ and ☕ by /u/Get2Hyped (Version 0.5a)</p>
 </div>
 </footer>
 </html>
