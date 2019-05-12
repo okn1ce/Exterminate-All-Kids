@@ -38,6 +38,8 @@ function buyGun() {
     guns = guns + 1;
     kids = kids - gunCost;
     SoldierKidsPerSecond = SoldierKidsPerSecond * 2;
+    gunCost = ((gunCost + 1) * 2);
+    document.getElementById("gunCost").innerHTML = gunCost;
     
     
     
