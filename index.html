@@ -35,21 +35,46 @@
     <div class="container">
       
       <h1>You have killed <span id="kidCount" class="red">1</span> kids.</h1>
-      <div class="informationBox">
-       <button class="killKid" onClick="killKid()">Kill a kid 🔪</button>
+      <div class="Clicker">
+       <button  class="killKid" onClick="killKid()">Kill a kid 🔪</button>
       </div>
     </div>
-    <div class="other">
+    
+    <div class="UpgradeSoldierBox">
+
       <div class="SoldierBox">
-        <button class="buySoldier" onClick="buySoldier()">Buy a soldier 💂</button>
+        <button class="buyButtonU" onClick="buySoldier()">Hire a soldier 💂</button>
         <p> Price : <span id="soldierCost">10</span> dead kids.<br>
          You have <span id="soldierCount">0</span> soldiers killing <span id="soldierSpeed">0</span> kids per second</p>
+
       </div>
-      <div class="weaponBox">
-      <button class="buyGun" onClick="buyGun()">Upgrade guns 🔫</button>
-        <p> Price : <span id="gunCost">130</span> dead kids.<br>  Equip your soldiers with better guns!
-  </div>
-    </div>
+         
+         <div class="GunBox">
+             <button class="buyButtonW" onClick="buyGun()">Upgrade guns 🔫</button>
+            <p> Price : <span id="gunCost">130</span> dead kids.<br>  Equip your soldiers with better guns!</p>
+         </div>
+
+         </div>
+
+         <div class="UpgradeTerroristBox">
+
+         <div class="TerroristBox">
+           <button class="buyButtonU" onClick="buyTerrorist()">Hire terrorists 👹</button>
+           <p> Price : <span id="terroristCost">600</span> dead kids.<br>
+            You have <span id="terroristCount">0</span> terrorists exploding <span id="terroristSpeed">0</span> kids per second</p>
+         </div>
+
+         <div class="BombBox">
+             <button class="buyButtonW" onClick="buyBomb()">Upgrade bombs 💣</button>
+            <p> Price : <span id="bombCost">900</span> dead kids.<br>  Gotta explode 'em all!</p>
+         </div>
+
+        </div>
+         
+     
+     
+    
+     
       
      
     
