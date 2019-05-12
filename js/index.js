@@ -89,8 +89,9 @@ function buySoldier(number) {
   if (kids >= soldierCost) {
     soldier = soldier + number;
     SoldierKidsPerSecond = SoldierKidsPerSecond + number;
-    soldierCost = ((soldier + 1) * 35)
     kids = kids - soldierCost;
+    soldierCost = ((soldier + 1) * 35)
+    
   update();
   playSoundSoldier();
 
