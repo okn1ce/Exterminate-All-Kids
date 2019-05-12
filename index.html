@@ -36,11 +36,16 @@
   <head>
     <meta charset="UTF-8">
     <script src="//cdn.rawgit.com/erosson/swarm-numberformat/v0.4.0/dist/swarm-numberformat.min.js"></script>
+    <script src="js/sounds.js"></script>
     <title>Exterminate kids</title>
+    
+<audio id="audioTerrorist" src="http://soundbible.com/grab.php?id=1468&type=mp3" autoplay="false" ></audio>
+      <audio id="audioGun" src="http://soundbible.com/grab.php?id=1401&type=mp3" autoplay="false" ></audio>
+      <audio id="audioSocial" src="http://soundbible.com/grab.php?id=1645&type=mp3" autoplay="false" ></audio>
+      <audio id="audioSoldier" src="Soldier.mp3" autoplay="false" ></audio>
   </head>
   <body>
     <div class="container">
-      
       <h1>You have killed <span id="kidCount" class="red">1</span> kids.</h1>
       <div class="Clicker">
        <button  class="killKid" onClick="killKid()">Kill a kid 🔪</button>
@@ -50,6 +55,7 @@
     <div class="UpgradeSoldierBox">
 
       <div class="SoldierBox">
+        
         <button class="buyButtonU" onClick="buySoldier()">Hire a soldier 💂</button>
         <p> Price : <span id="soldierCost">10</span> dead kids.<br>
          You have <span id="soldierCount">0</span> soldiers killing <span id="soldierSpeed">0</span> kids per second</p>
@@ -91,7 +97,21 @@
             <p> Price : <span id="SocialMediaCost">10000</span> dead kids.<br>  Can't get autism if you die from polio!</p>
          </div>
 
+         <div class="UpgradePedoBox" id="UnlockPedos">
+
+          <div class="TerroristBox">
+           <button class="buyButtonU" onClick="buyPedo()">Hire Pedophiles 🐻</button>
+           <p> Price : <span id="PedoCost">35000</span> dead kids.<br>
+            You have <span id="Pedophile">0</span> pedophiles raping and killing <span id="PedoSpeed">0</span> kids per second</p>
+         </div>
+
+         <div class="BombBox">
+             <button class="buyButtonW" onClick="buyPedoTrain()">Build pedophile training camp 🏛️</button>
+            <p> Price : <span id="PedoTrainCost">99000</span> dead kids.<br>  Pedobear's golden hour.</p>
+         </div>
+
         </div>
+      </div>
 
 
          
@@ -114,6 +134,7 @@
 
 </body>
 <footer>
+  <iframe width="100%" height="0" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/332469031&color=%230b0b0b&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
   <div class="footer">
   <p>Game made with ❤️ and ☕ by /u/Get2Hyped (updates coming very soon!)</p>
 </div>

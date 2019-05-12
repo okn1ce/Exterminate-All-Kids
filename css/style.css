@@ -112,6 +112,16 @@ h1 {
   overflow: hidden;
 }
 
+.UpgradePedoBox {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
 .UpgradeAntiVaxBox{
   text-align: center;
   width: 100%;

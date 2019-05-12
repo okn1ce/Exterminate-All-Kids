@@ -19,9 +19,16 @@ var AntiVaxxKidsPerSecond = 0;
 var SocialMedia = 0;
 var SocialMediaCost = 10000;
 
+var Pedophile = 0;
+var PedoCost = 35000;
+var PedoKidsPerSecond = 0;
+var PedoTrain = 0;
+var PedoTrainCost = 99000;
+
 //Unlockables
 document.getElementById("UnlockTerrorist").style.display = "none"
 document.getElementById("UnlockAntiVaxx").style.display = "none"
+document.getElementById("UnlockPedos").style.display = "none"
 
 function Unlockable() {
   if (kids >= 100) {
@@ -29,6 +36,9 @@ function Unlockable() {
   }
   if (kids >= 1000) {
     document.getElementById("UnlockAntiVaxx").style.display = "inline-block"
+  if (kids >= 10000) {
+    document.getElementById("UnlockPedos").style.display = "inline-block"
+  }
 
   }
 }
@@ -43,9 +53,13 @@ function prettify(input){
 }
 
 function killKid() {
-  kids = kids + 1;
+  kids = kids + 1000;
   document.getElementById("kidCount").innerHTML = prettify(kids);
 }
+
+
+
+
 
 
 
@@ -55,11 +69,13 @@ function buySoldier() {
     soldier = soldier + 1;
     SoldierKidsPerSecond = SoldierKidsPerSecond + 1;
     kids = kids - soldierCost;
-    soldierCost = ((soldier + 1) * 23)
+    soldierCost = ((soldier + 1) * 35)
   document.getElementById("soldierCount").innerHTML = soldier;
   document.getElementById("kidCount").innerHTML = prettify(kids);
   document.getElementById("soldierCost").innerHTML = prettify(soldierCost);
   document.getElementById("soldierSpeed").innerHTML = SoldierKidsPerSecond;
+  playSoundSoldier();
+
   }
 }
 
@@ -68,9 +84,10 @@ function buyGun() {
     guns = guns + 1;
     kids = kids - gunCost;
     SoldierKidsPerSecond = SoldierKidsPerSecond * 2;
-    gunCost = ((gunCost + 1) * 2);
+    gunCost = ((gunCost + 1) * 8);
     document.getElementById("gunCost").innerHTML = gunCost;
     document.getElementById("soldierSpeed").innerHTML = SoldierKidsPerSecond;  
+    playSoundGun()
   }
 }
 
@@ -81,11 +98,12 @@ function buyTerrorist() {
     terrorist = terrorist + 1;
     TerroristsKidsPerSecond = TerroristsKidsPerSecond + 5;
     kids = kids - TerroristCost;
-    TerroristCost = TerroristCost + ((terrorist + 1) * 150)
+    TerroristCost = TerroristCost + ((terrorist + 1) * 180)
   document.getElementById("terroristCount").innerHTML = terrorist;
   document.getElementById("kidCount").innerHTML = prettify(kids);
   document.getElementById("terroristCost").innerHTML = prettify(TerroristCost);
   document.getElementById("terroristSpeed").innerHTML = (TerroristsKidsPerSecond);
+  playSoundTerrorist()
   }
 }
 
@@ -94,7 +112,7 @@ function buyBomb() {
     bomb = bomb + 1;
     kids = kids - bombCost;
     TerroristsKidsPerSecond = TerroristsKidsPerSecond * 2;
-    bombCost = ((bombCost + 1) * 2);
+    bombCost = ((bombCost + 1) * 8);
     document.getElementById("bombCost").innerHTML = bombCost; 
     document.getElementById("terroristSpeed").innerHTML = TerroristsKidsPerSecond;   
   }
@@ -106,11 +124,12 @@ function buyAntiVaxx() {
     AntiVaxx = AntiVaxx + 1;
     AntiVaxxKidsPerSecond = AntiVaxxKidsPerSecond + 25;
     kids = kids - AntiVaxxCost;
-    AntiVaxxCost = AntiVaxxCost + ((AntiVaxx + 1) * 350)
+    AntiVaxxCost = AntiVaxxCost + ((AntiVaxx + 1) * 380)
   document.getElementById("AntiVaxxCount").innerHTML = AntiVaxx;
   document.getElementById("kidCount").innerHTML = prettify(kids);
   document.getElementById("AntiVaxxCost").innerHTML = prettify(AntiVaxxCost);
   document.getElementById("AntiVaxxSpeed").innerHTML = (AntiVaxxKidsPerSecond);
+
   }
 }
 
@@ -119,26 +138,47 @@ function buySocialMedia() {
     SocialMedia = SocialMedia + 1;
     kids = kids - SocialMediaCost;
     AntiVaxxKidsPerSecond = AntiVaxxKidsPerSecond * 2;
-    SocialMediaCost = ((SocialMediaCost + 1) * 2);
+    SocialMediaCost = ((SocialMediaCost + 1) * 8);
     document.getElementById("SocialMediaCost").innerHTML = SocialMediaCost; 
     document.getElementById("AntiVaxxSpeed").innerHTML = AntiVaxxKidsPerSecond;   
+    playSoundSocial();
   }
 }
 
 
+//Pedophile upgrade
+function buyPedo() {
+  if (kids >= PedoCost) {
+    Pedophile = Pedophile + 1;
+    PedoKidsPerSecond = PedoKidsPerSecond + 50;
+    kids = kids - PedoCost;
+    PedoCost = PedoCost + ((Pedophile + 1) * 580)
+  document.getElementById("PedoCount").innerHTML = Pedophile;
+  document.getElementById("kidCount").innerHTML = prettify(kids);
+  document.getElementById("PedoCost").innerHTML = prettify(PedoCost);
+  document.getElementById("PedoSpeed").innerHTML = (PedoKidsPerSecond);
 
+  }
+}
 
-
-
-
-
+function buyPedoTrain() {
+  if (kids >= PedoTrainCost) {
+    PedoTrain = PedoTrain + 1;
+    kids = kids - PedoTrainCost;
+    PedoKidsPerSecond = PedoKidsPerSecond * 2;
+    PedoTrainCost = ((PedoTrainCost + 1) * 8);
+    document.getElementById("PedoTrainCost").innerHTML = PedoTrainCost; 
+    document.getElementById("PedoSpeed").innerHTML = PedoKidsPerSecond;   
+    playSoundSocial();
+  }
+}
 
 
 
 //Ticks & kids per second
 
 function Tick() {
-  kids = kids + SoldierKidsPerSecond + TerroristsKidsPerSecond + AntiVaxxKidsPerSecond;
+  kids = kids + SoldierKidsPerSecond + TerroristsKidsPerSecond + AntiVaxxKidsPerSecond + PedoKidsPerSecond;
   document.getElementById("kidCount").innerHTML = prettify(kids);
   ;
 }
@@ -147,39 +187,37 @@ window.setInterval(function(){
 	
 	Tick();
   Unlockable();
+  
 	
 }, 1000);
 
 //Save & Load
 
-function save() {
-  localStorage.setItem("kids", kids);
-  localStorage.setItem("soldier", soldier);
-  localStorage.setItem("guns", guns);
-  localStorage.setItem("terrorist", terrorist);
-  localStorage.setItem("bomb", bomb);
-  localStorage.setItem("Antivaxx", Antivaxx);
-  localStorage.setItem("SocialMedia", SocialMedia);
 
-}
 
-function load() {
-  kids = localStorage.getItem("kids")
-  kids = parseInt(kids);
-  soldier = localStorage.getItem("soldier");
-  soldier = parseInt(soldier);
-  guns = localStorage.getItem("guns");
-  guns = parseInt(guns);
-  terrorist = localStorage.getItem("terrorist");
-  terrorist = parseInt(terrorist);
-  bomb = localStorage.getItem("bomb");
-  bomb = parseInt(bomb);
-  AntiVaxx = localStorage.getItem("AntiVaxx");
-  AntiVaxx = parseInt(AntiVaxx);
-  SocialMedia = localStorage.getItem("SocialMedia");
-  SocialMedia = parseInt(SocialMedia);
 
-}
+//Save & Load feature
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
