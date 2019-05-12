@@ -2,7 +2,7 @@ var kids = 0;
 var soldier = 0;
 var soldierCost = 10;
 var guns = 0;
-var gunCost = 200;
+var gunCost = 130;
 var SoldierKidsPerSecond = 0;
 
 function prettify(input){
