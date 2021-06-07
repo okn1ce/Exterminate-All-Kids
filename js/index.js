@@ -1,30 +1,42 @@
 //Variables
 var kids = 0;
+var kidsTotal = 0;
 
 
 var soldier = 0;
 var soldierCost = 15;
 var SoldierKidsPerSecond = 0;
+var SoldierValue = 1;
 var guns = 0;
 var gunCost = 100;
 
 var terrorist = 0;
 var TerroristCost = 100;
 var TerroristsKidsPerSecond = 0;
+var TerroristValue = 10;
 var bomb = 0;
-var bombCost = 1000;
+var bombCost = 300;
 
 var AntiVaxx = 0;
 var AntiVaxxCost = 1100;
 var AntiVaxxKidsPerSecond = 0;
+var AntiVaxxValue = 100;
 var SocialMedia = 0;
-var SocialMediaCost = 10000;
+var SocialMediaCost = 3500;
 
 var Pedophile = 0;
 var PedoCost = 12000;
 var PedoKidsPerSecond = 0;
+var PedoValue = 300;
 var PedoTrain = 0;
-var PedoTrainCost = 112000;
+var PedoTrainCost = 35000;
+
+var Drugs = 0;
+var DrugsCost = 50000;
+var DrugsKidsPerSecond = 0;
+var DrugsValue = 800;
+var DrugMortality = 0;
+var DrugMortalityCost = 90000;
 
 var TotalSpeed = 0.0;
 
@@ -32,6 +44,7 @@ var TotalSpeed = 0.0;
 document.getElementById("UnlockTerrorist").style.display = "none"
 document.getElementById("UnlockAntiVaxx").style.display = "none"
 document.getElementById("UnlockPedos").style.display = "none"
+document.getElementById("UnlockDrugs").style.display = "none"
 
 
 function prettify(input){
@@ -48,6 +61,9 @@ function Unlockable() {
   if (kids >= 10000) {
     document.getElementById("UnlockPedos").style.display = "inline-block"
   }
+  if (kids >= 20000) {
+    document.getElementById("UnlockDrugs").style.display = "inline-block"
+  }
 
   }
 }
@@ -63,6 +79,7 @@ function update() {
 
 function killKid() {
   kids = kids + 1;
+  kidsTotal = kidsTotal + 1;
   document.getElementById("kidCount").innerHTML = Math.round(kids);
 }
 
@@ -76,7 +93,7 @@ function killKid() {
 function buySoldier() {
   if (kids >= soldierCost) {
     soldier = soldier + 1;
-    SoldierKidsPerSecond = SoldierKidsPerSecond + (1 * 0.1);
+    SoldierKidsPerSecond = SoldierValue * soldier;
    kids = kids - soldierCost;
     soldierCost = Math.round(soldierCost * 1.15);
   document.getElementById("soldierCount").innerHTML = soldier;
@@ -94,8 +111,9 @@ function buyGun() {
   if (kids >= gunCost && soldier >= 1) {
     guns = guns + 1;
     kids = kids - gunCost;
-    SoldierKidsPerSecond = SoldierKidsPerSecond * 2;
-    gunCost = (gunCost * 10);
+    SoldierValue = SoldierValue * 2;
+    SoldierKidsPerSecond = SoldierValue * soldier;
+    gunCost = (gunCost * 2);
     document.getElementById("gunCost").innerHTML = gunCost;
     update(); 
     playSoundGun()
@@ -107,7 +125,7 @@ function buyGun() {
 function buyTerrorist() {
   if (kids >= TerroristCost) {
     terrorist = terrorist + 1;
-    TerroristsKidsPerSecond = TerroristsKidsPerSecond + (1 * 1);
+    TerroristsKidsPerSecond = TerroristValue * terrorist;
     kids = kids - TerroristCost;
     TerroristCost = Math.round(TerroristCost * 1.15)
   document.getElementById("terroristCost").innerHTML = prettify(TerroristCost);
@@ -123,8 +141,9 @@ function buyBomb() {
   if (kids >= bombCost && terrorist >= 1) {
     bomb = bomb + 1;
     kids = kids - bombCost;
-    TerroristsKidsPerSecond = TerroristsKidsPerSecond * 2;
-    bombCost = (bombCost * 10);
+    TerroristValue = TerroristValue * 2;
+    TerroristsKidsPerSecond = TerroristValue * terrorist;
+    bombCost = (bombCost * 2);
      document.getElementById("bombCost").innerHTML = bombCost; 
     update();
   }
@@ -134,9 +153,9 @@ function buyBomb() {
 function buyAntiVaxx() {
   if (kids >= AntiVaxxCost) {
     AntiVaxx = AntiVaxx + 1;
-    AntiVaxxKidsPerSecond = AntiVaxxKidsPerSecond + (8 * 1);
+    AntiVaxxKidsPerSecond = AntiVaxxValue * AntiVaxx;
     kids = kids - AntiVaxxCost;
-    AntiVaxxCost = Math.round(AntiVaxxCost * 1.15)
+    AntiVaxxCost = Math.round(AntiVaxxCost * 2)
     document.getElementById("AntiVaxxCost").innerHTML = AntiVaxxCost;
   document.getElementById("AntiVaxxCount").innerHTML = AntiVaxx; 
   document.getElementById("AntiVaxxSpeed").innerHTML = AntiVaxxKidsPerSecond;
@@ -150,8 +169,9 @@ function buySocialMedia() {
   if (kids >= SocialMediaCost && AntiVaxx >= 1) {
     SocialMedia = SocialMedia + 1;
     kids = kids - SocialMediaCost;
-    AntiVaxxKidsPerSecond = AntiVaxxKidsPerSecond * 2;
-    SocialMediaCost = (SocialMediaCost * 10);
+    AntiVaxxValue = AntiVaxxValue * 2;
+    AntiVaxxKidsPerSecond = AntiVaxxValue * AntiVaxx;
+    SocialMediaCost = (SocialMediaCost * 2);
     document.getElementById("SocialMediaCost").innerHTML = SocialMediaCost;
     update();
     playSoundSocial();
@@ -163,8 +183,8 @@ function buySocialMedia() {
 function buyPedo() {
   if (kids >= PedoCost) {
     Pedophile = Pedophile + 1;
-    PedoKidsPerSecond = PedoKidsPerSecond + (47 * 1);
     kids = kids - PedoCost;
+    PedoKidsPerSecond = PedoValue * Pedophile;
     PedoCost = Math.round(PedoCost * 1.15)
     document.getElementById("Pedophile").innerHTML = Pedophile;
     document.getElementById("PedoCost").innerHTML = PedoCost;
@@ -178,22 +198,52 @@ function buyPedoTrain() {
   if (kids >= PedoTrainCost && Pedophile >= 1) {
     PedoTrain = PedoTrain + 1;
     kids = kids - PedoTrainCost;
-    PedoKidsPerSecond = PedoKidsPerSecond * 2;
-    PedoTrainCost = (PedoTrainCost * 10);
+    PedoValue = PedoValue * 2;
+    PedoKidsPerSecond = PedoValue * Pedophile;
+    PedoTrainCost = (PedoTrainCost * 2.5);
     document.getElementById("PedoTrainCost").innerHTML = prettify(PedoTrainCost); 
     document.getElementById("PedoSpeed").innerHTML = PedoKidsPerSecond
     playSoundSocial();
   }
 }
 
+//Drug upgrade
+function buyDrugs() {
+  if (kids >= DrugsCost) {
+    Drugs = Drugs + 1;
+    kids = kids - DrugsCost;;
+    DrugsKidsPerSecond = DrugsValue * Drugs;
+    DrugsCost = Math.round(DrugsCost * 2)
+    document.getElementById("Drugs").innerHTML = Drugs;
+    document.getElementById("DrugsCost").innerHTML = DrugsCost;
+    document.getElementById("DrugsSpeed").innerHTML = DrugsKidsPerSecond;
+    update();
+    }
+}
+
+
+function buyDrugsMortality() {
+  if (kids >= DrugMortalityCost && Drugs >= 1) {
+    DrugMortality = DrugMortality + 1;
+    kids = kids - DrugMortalityCost;
+    DrugsValue = DrugsValue * 2;
+    DrugsKidsPerSecond = DrugsValue * Drugs;
+    DrugMortalityCost = (DrugMortalityCost * 2.5);
+    document.getElementById("DrugMortalityCost").innerHTML = prettify(DrugMortalityCost); 
+    document.getElementById("DrugsSpeed").innerHTML = DrugsKidsPerSecond
+    playSoundSocial();
+  }
+}
 
 
 //Ticks & kids per second
 
 function Tick() {
-  TotalSpeed = SoldierKidsPerSecond + TerroristsKidsPerSecond + AntiVaxxKidsPerSecond + PedoKidsPerSecond;
-  kids = kids + TotalSpeed; 
+  TotalSpeed = SoldierKidsPerSecond + TerroristsKidsPerSecond+ AntiVaxxKidsPerSecond + PedoKidsPerSecond + DrugsKidsPerSecond;
+  kids = kids + TotalSpeed;
+  kidsTotal = kidsTotal + TotalSpeed; 
   document.getElementById("kidCount").innerHTML = Math.round(kids);
+  document.getElementById("kidsTotal").innerHTML = Math.round(kidsTotal);
   document.getElementById("TotalSpeed").innerHTML = prettify(TotalSpeed);
 }
 

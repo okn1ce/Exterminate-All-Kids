@@ -82,6 +82,11 @@ h1 {
   margin-top: 0px;
 }
 
+h4 {
+  color: white;
+  text-align: center;
+}
+
 .container {
   border: solid white 2px;
   margin: 30px;
@@ -123,6 +128,15 @@ h1 {
 }
 
 .UpgradeAntiVaxBox{
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.UpgradeDrugsBox{
   text-align: center;
   width: 100%;
   overflow: hidden;

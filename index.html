@@ -7,27 +7,13 @@
   
   
   
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139996061-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-139996061-1');
-</script>
- 
+      <link rel="stylesheet" href="css/style.css"/>
  <div id="note">
-        Please, don't take this game at face value. Don't kill kids in real life. Seriously, <storng>don't.</storng> <a id="close">[close]</a>
+        Please, don't take this game at face value. Don't kill kids in real life. Seriously, <strong>don't.</strong> <a id="close">[close]</a>
     </div>
  
 
-
-
-
-  
-</head>
+ </head>
 
 <body>
 
@@ -43,7 +29,8 @@
   <body>
     <div class="container">
       <p class="TotalSpeed"> Your army is killing <span id="TotalSpeed" class="red">0.0</span> kids per second </p>
-      <h1>You have killed <span id="kidCount" class="red">1</span> kids.</h1>
+      <h1>You have <span id="kidCount" class="red">1</span> kids bodies.</h1>
+      <h4>And you have killed a total of <span id="kidsTotal" class="red">0</span> kids.</h4>
       <div class="Clicker">
 
        <button  class="killKid" onClick="killKid()">Kill a kid 🔪</button>
@@ -77,7 +64,7 @@
 
          <div class="BombBox">
              <button class="buyButtonW" onClick="buyBomb()">Upgrade bombs 💣</button>
-            <p> Price : <span id="bombCost">1000</span> dead kids.<br>  Gotta explode 'em all!</p>
+            <p> Price : <span id="bombCost">300</span> dead kids.<br>  Gotta explode 'em all!</p>
          </div>
 
         </div>
@@ -93,7 +80,7 @@
 
          <div class="BombBox">
              <button class="buyButtonW" onClick="buySocialMedia()">Advertise on social medias 📱</button>
-            <p> Price : <span id="SocialMediaCost">10000</span> dead kids.<br>  Can't get autism if you die from polio!</p>
+            <p> Price : <span id="SocialMediaCost">3500</span> dead kids.<br>  Can't get autism if you die from polio!</p>
          </div>
 
          <div class="UpgradePedoBox" id="UnlockPedos">
@@ -107,10 +94,27 @@
 
          <div class="BombBox">
              <button class="buyButtonW" onClick="buyPedoTrain()">Build pedophile training camp 🏛️</button>
-            <p> Price : <span id="PedoTrainCost">112000</span> dead kids.<br>  Pedobear's golden hour.</p>
+            <p> Price : <span id="PedoTrainCost">35000</span> dead kids.<br>  Pedobear's golden hour.</p>
          </div>
 
         </div>
+
+        <div class="UpgradeDrugsBox" id="UnlockDrugs">
+
+          <div class="TerroristBox">
+           <p><span id="Drugs">0</span> Drugs dealers</p>
+           <button class="buyButtonU" onClick="buyDrugs()">Hire Drug Dealers 💊</button>
+           <p> Price : <span id="DrugsCost">50000</span> dead kids.<br>
+            </p>
+         </div>
+
+         <div class="BombBox">
+             <button class="buyButtonW" onClick="buyDrugsMortality()">Make drugs more lethal 💀</button>
+            <p> Price : <span id="DrugMortalityCost">90000</span> dead kids.<br>  Did someone say overdose?</p>
+         </div>
+
+        </div>
+
       </div>
 
 
